@@ -1,0 +1,32 @@
+[project]
+name = "molmo-7b-d"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "sykoravojtech",email = "vojtasykor@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "torch (>=2.7.1,<3.0.0)",
+    "transformers (>=4.52.4,<5.0.0)",
+    "accelerate (>=1.8.1,<2.0.0)",
+    "huggingface-hub (>=0.33.0,<0.34.0)",
+    "pillow (>=11.2.1,<12.0.0)",
+    "torchvision (>=0.22.1,<0.23.0)",
+    "sentencepiece (>=0.2.0,<0.3.0)",
+    "bitsandbytes (>=0.46.0,<0.47.0)",
+    "fairscale (>=0.4.13,<0.5.0)",
+    "fire (>=0.7.0,<0.8.0)",
+    "blobfile (>=3.0.0,<4.0.0)",
+    "einops (>=0.8.1,<0.9.0)",
+    "tensorflow (>=2.19.0,<3.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "molmo_7b_d", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
