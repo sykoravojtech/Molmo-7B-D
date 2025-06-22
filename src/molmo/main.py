@@ -10,7 +10,7 @@ from PIL import Image
 from transformers import AutoModelForCausalLM, AutoProcessor, GenerationConfig
 
 DEFAULT_CLASSES: List[str] = [
-    "__background__", "text", "junction", "crossover", "terminal", "gnd", "vss",
+    "junction", "crossover", "terminal", "gnd", "vss",
     "voltage.dc", "voltage.ac", "voltage.battery", "resistor", "resistor.adjustable",
     "resistor.photo", "capacitor.unpolarized", "capacitor.polarized", "capacitor.adjustable",
     "inductor", "inductor.ferrite", "inductor.coupled", "transformer", "diode",
@@ -21,7 +21,7 @@ DEFAULT_CLASSES: List[str] = [
     "xor", "and", "or", "not", "nand", "nor", "probe", "probe.current",
     "probe.voltage", "switch", "relay", "socket", "fuse", "speaker", "motor",
     "lamp", "microphone", "antenna", "crystal", "mechanical", "magnetic",
-    "optical", "block", "unknown"
+    "optical", "block"
 ]
 
 def load_model(model_id: str) -> Tuple[AutoModelForCausalLM, AutoProcessor]:
@@ -125,11 +125,12 @@ def main() -> None:
 
     model, proc = load_model(args.model)
     img = Image.open(args.image).convert("RGB")
-    prompt = make_prompt(args.classes)
+    # prompt = make_prompt(args.classes)
+    prompt = "You are an expert object detection model specialized in analyzing electric circuit diagram symbols. How many capacitors are in the image?"
     raw = infer_to_raw(model, proc, img, prompt)
     print("Raw output:")
     print(raw)
-    
+    exit()
     try:
         pred = parse_predictions(raw, args.classes)
         print("Parsed predictions:")

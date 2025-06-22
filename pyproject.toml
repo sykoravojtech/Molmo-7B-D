@@ -20,11 +20,15 @@ dependencies = [
     "fire (>=0.7.0,<0.8.0)",
     "blobfile (>=3.0.0,<4.0.0)",
     "einops (>=0.8.1,<0.9.0)",
-    "tensorflow (>=2.19.0,<3.0.0)"
+    "tensorflow (>=2.19.0,<3.0.0)",
+    "black (>=25.1.0,<26.0.0)",
+    "isort (>=6.0.1,<7.0.0)",
+    "matplotlib (>=3.10.3,<4.0.0)",
+    "ipykernel (>=6.29.5,<7.0.0)"
 ]
 
 [tool.poetry]
-packages = [{include = "molmo_7b_d", from = "src"}]
+packages = [{include = "molmo", from = "src"}]
 
 
 [build-system]
