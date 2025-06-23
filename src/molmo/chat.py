@@ -35,7 +35,10 @@ def infer_to_raw(
     with torch.autocast("cuda", torch.bfloat16):
         out = model.generate_from_batch(
             inputs,
-            GenerationConfig(max_new_tokens=512, stop_strings="<|endoftext|>"),
+            GenerationConfig(
+                max_new_tokens=1024, 
+                stop_strings="<|endoftext|>",
+                do_sample=False),
             tokenizer=processor.tokenizer,
         )
     generated_tokens = out[0, inputs["input_ids"].size(1):]
