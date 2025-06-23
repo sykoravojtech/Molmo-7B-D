@@ -140,7 +140,7 @@ def main() -> None:
     p = argparse.ArgumentParser(description="Interactive chat with Molmo model")
     p.add_argument(
         "--image",
-        default="/storage/brno2/home/nademvit/vthesis/cg25/data/rpi_pico_sample/drafter_31/images/48c9152c-0-4.jpg",
+        default="data/images/48c9152c-0-4.jpg",
         help="Path to the image file to analyze",
         nargs="?"  # Makes the argument optional, using default if not provided
     )

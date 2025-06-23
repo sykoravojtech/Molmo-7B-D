@@ -477,19 +477,17 @@ if __name__ == "__main__":
     # Counting the <points x1="21.0" y1="76.5" x2="69.5" y2="37.9" x3="69.5" y3="51.5" x4="69.5" y4="65.5" x5="69.5" y5="78.0" x6="69.5" y6="92.0" alt="resistors">resistors</points> shows a total of 6.
     # '''
     example_molmo_response = '''
-    Model_Response:  <points x1="20.8" y1="42.4" x2="21.0" y2="53.6" x3="22.0" y3="30.6" x4="22.0" y4="71.0" x5="70.0" y5="25.8" x6="70.0" y6="40.8" x7="70.0" y7="57.8" x8="70.0" y8="73.6" x9="70.0" y9="89.6" x10="81.8" y10="26.8" x11="81.8" y11="41.4" x12="81.8" y12="58.4" x13="81.8" y13="74.4" alt="terminal">terminal</points>
-    Model_Response:  <points x1="20.8" y1="42.4" x2="21.0" y2="53.6" x3="66.5" y3="20.0" x4="66.5" y4="33.6" x5="66.5" y5="49.8" x6="66.5" y6="65.0" x7="66.5" y7="81.6" alt="resistor">resistor</points>
-    Model_Response:  <points x1="20.8" y1="42.4" x2="21.0" y2="53.6" x3="22.0" y3="31.6" x4="22.0" y4="71.4" x5="22.1" y5="20.4" x6="22.1" y6="85.6" x7="23.5" y7="39.8" x8="23.5" y8="50.0" x9="23.5" y9="61.2" x10="23.5" y10="78.0" x11="23.6" y11="28.0" x12="23.6" y12="89.6" x13="24.0" y13="17.2" x14="24.0" y14="70.0" x15="24.1" y15="22.8" x16="24.1" y16="44.4" x17="24.1" y17="56.4" x18="24.1" y18="65.2" x19="24.2" y19="35.2" x20="24.2" y20="52.0" x21="24.2" y21="80.8" x22="24.3" y22="14.0" x23="24.3" y23="25.6" x24="24.3" y24="32.0" x25="24.3" y25="40.0" x26="24.3" y26="47.6" x27="24.3" y27="60.0" x28="24.3" y28="68.4" x29="24.3" y29="74.0" x30="24.3" y30="83.6" x31="24.4" y31="11.6" x32="24.4" y32="19.6" x33="24.4" y33="37.6" x34="24.4" y34="58.4" x35="24.4" y35="76.8" x36="24.4" y36="87.6" x37="24.5" y37="8.8" x38="24.5" y38="29.6" x39="24.5" y39="46.0" x40="24.5" y40="63.6" alt="switch">switch</points>
-    Model_Response:  <points x1="20.8" y1="42.4" x2="21.0" y2="53.6" alt="voltage.dc">voltage.dc</points>
-
+    Model_Response:  <points x1="20.8" y1="42.4" x2="21.0" y2="53.6" x3="29.5" y3="42.4" x4="30.0" y4="53.6" x5="37.5" y5="42.4" x6="37.7" y6="53.6" x7="54.5" y7="42.4" x8="54.7" y8="31.7" x9="54.7" y9="53.6" x10="61.0" y10="42.4" x11="61.2" y11="31.7" x12="61.2" y12="53.6" x13="68.2" y13="42.4" x14="68.3" y14="31.7" x15="68.3" y15="53.6" x16="75.2" y16="42.4" x17="75.3" y17="31.7" x18="75.3" y18="53.6" x19="82.7" y19="42.4" x20="82.8" y20="31.7" alt="terminal">terminal</points>
+    Model_Response:  <points x1="20.8" y1="42.4" x2="21.0" y2="53.6" x3="29.5" y3="42.4" x4="29.5" y4="53.6" x5="37.9" y5="42.4" x6="38.1" y6="53.6" alt="resistor">resistor</points>
+    Model_Response:  <points x1="30.5" y1="42.4" x2="30.5" y2="53.6" x3="38.5" y3="42.4" x4="38.7" y4="53.6" x5="62.0" y5="18.7" x6="62.0" y6="36.5" x7="69.5" y7="18.7" x8="69.5" y8="36.5" x9="76.8" y9="18.7" x10="76.8" y10="36.5" alt="diode.light_emitting">diode.light_emitting</points>
     '''
     
-    image_path = "data/images/48c9152c-0-6.jpg"
+    image_path = "data/images/af51898d-18-4.jpg"
     xml_path = f"data/annotations/{os.path.basename(image_path)[:-4]}.xml"
     
     # Get dimensions from XML
     image_width, image_height = get_image_dimensions_from_xml(xml_path)
-    
+    print(f"IMAGE: {image_path}")
     results = evaluate_molmo_predictions(example_molmo_response, xml_path, image_width, image_height)
     print_evaluation_report(results)
     visualize_predictions(image_path, example_molmo_response, xml_path)
