@@ -1,0 +1,1 @@
+GT: ["voltage.battery", "resistor", "diode.light_emitting"]
