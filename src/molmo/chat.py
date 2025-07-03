@@ -3,12 +3,23 @@ from __future__ import annotations
 import argparse
 import sys
 from pathlib import Path
-from typing import Tuple
+from typing import Tuple, Any, Dict
+import json
 
 import torch
 from PIL import Image
 from transformers import AutoModelForCausalLM, AutoProcessor, GenerationConfig
 
+def save_processed_image(  # type: ignore[no-untyped-def]
+    processed: Dict[str, Any], output_path: str
+) -> None:
+    """Save the processed image tensor as JSON to a text file."""
+    # The processor returns either 'images' or 'pixel_values'
+    key = "images" if "images" in processed else "pixel_values"
+    tensor = processed[key]  # torch.Tensor
+    data = tensor.detach().cpu().tolist()
+    with open(output_path, "w") as f:
+        json.dump(data, f)
 
 def load_model(model_id: str) -> Tuple[AutoModelForCausalLM, AutoProcessor]:
     """Load Molmo model."""
@@ -27,6 +38,9 @@ def infer_to_raw(
 ) -> str:
     """Run Molmo and return raw generated string."""
     inputs = processor.process(images=[image], text=prompt)
+    
+    save_processed_image(inputs, "output.txt")
+    
     inputs = {k: v.to(model.device).unsqueeze(0) for k, v in inputs.items()}
 
     # Convert image inputs to the same dtype as the model
