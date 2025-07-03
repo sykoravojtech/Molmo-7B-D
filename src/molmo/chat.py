@@ -20,6 +20,7 @@ def save_processed_image(  # type: ignore[no-untyped-def]
     data = tensor.detach().cpu().tolist()
     with open(output_path, "w") as f:
         json.dump(data, f)
+    print(f"Saved processed image in {output_path}")
 
 def load_model(model_id: str) -> Tuple[AutoModelForCausalLM, AutoProcessor]:
     """Load Molmo model."""
