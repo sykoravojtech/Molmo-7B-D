@@ -1,0 +1,23 @@
+[
+  {
+    "timestamp": "2025-07-11T11:30:28.690870",
+    "shot_selection": 2,
+    "image_path": "data/images/8a23460a-1.jpg",
+    "human_prompt": "'You are a specialised circuit-diagram interpreter performing zero-shot inference. Given the image of an electrical circuit diagram, identify all symbols of class \"capacitor.unpolarized\". For each symbol from that class, output one <points> tag and nothing else, in the exact format: <points x1=\"\u2026\" y1=\"\u2026\" x2=\"\u2026\" y2=\"\u2026\" x3=\"\u2026\" y3=\"\u2026\" alt=\"capacitor.unpolarized\">capacitor.unpolarized</points> Use the coordinates of the center of the bounding box of each symbol. Do not include any additional text or tags.\\nExample for 3 different locations: <points x1=\"20.8\" y1=\"42.4\" x2=\"21.0\" y2=\"53.6\" x3=\"22.3\" y3=54.8 alt=\"capacitor.unpolarized\">capacitor.unpolarized</points>'",
+    "assistant_response": " <points x1=\"20.8\" y1=\"42.4\" x2=\"21.0\" y2=\"53.6\" x3=\"22.3\" y3=\"54.8\" alt=\"capacitor.unpolarized\">capacitor.unpolarized</points>"
+  },
+  {
+    "timestamp": "2025-07-11T11:31:32.528484",
+    "shot_selection": 2,
+    "image_path": "data/images/8a23460a-1.jpg",
+    "human_prompt": "'You are a specialised circuit-diagram interpreter performing zero-shot inference. Given the image of an electrical circuit diagram, identify all symbols of class \"gnd\". For each symbol from that class, output one <points> tag and nothing else, in the exact format: <points x1=\"\u2026\" y1=\"\u2026\" x2=\"\u2026\" y2=\"\u2026\" x3=\"\u2026\" y3=\"\u2026\" alt=\"gnd\">gnd</points> Use the coordinates of the center of the bounding box of each symbol. Do not include any additional text or tags.\\nExample for 3 different locations: <points x1=\"20.8\" y1=\"42.4\" x2=\"21.0\" y2=\"53.6\" x3=\"22.3\" y3=54.8 alt=\"gnd\">gnd</points>'",
+    "assistant_response": " <points x1=\"20.8\" y1=\"42.4\" x2=\"21.0\" y2=\"53.6\" x3=\"22.3\" y3=\"54.8\" alt=\"gnd\">gnd</points>"
+  },
+  {
+    "timestamp": "2025-07-11T11:32:12.219106",
+    "shot_selection": 2,
+    "image_path": "data/images/8a23460a-1.jpg",
+    "human_prompt": "'You are a specialised circuit-diagram interpreter performing zero-shot inference. Given the image of an electrical circuit diagram, identify all symbols of class \"inductor\". For each symbol from that class, output one <points> tag and nothing else, in the exact format: <points x1=\"\u2026\" y1=\"\u2026\" x2=\"\u2026\" y2=\"\u2026\" x3=\"\u2026\" y3=\"\u2026\" alt=\"inductor\">inductor</points> Use the coordinates of the center of the bounding box of each symbol. Do not include any additional text or tags.\\nExample for 3 different locations: <points x1=\"20.8\" y1=\"42.4\" x2=\"21.0\" y2=\"53.6\" x3=\"22.3\" y3=54.8 alt=\"inductor\">inductor</points>'",
+    "assistant_response": " <points x1=\"20.8\" y1=\"42.4\" x2=\"21.0\" y2=\"53.6\" x3=\"22.3\" y3=\"54.8\" alt=\"inductor\">inductor</points>"
+  }
+]

@@ -1,14 +1,30 @@
 from __future__ import annotations
 
 import argparse
+import base64
+import json
 import sys
 from pathlib import Path
-from typing import Tuple, Any, Dict
-import json
+from typing import Any, Dict, Tuple
 
 import torch
 from PIL import Image
 from transformers import AutoModelForCausalLM, AutoProcessor, GenerationConfig
+
+
+def save_image_features(  # type: ignore[no-untyped-def]
+    model: Any, processor: Any, image: Image.Image, path: str
+) -> None:
+    """Extract and save the image-feature vector as Base64 text."""
+    # use the same .process interface as infer_to_raw
+    processed = processor.process(images=[image], text="", return_tensors="pt")
+    inputs = {k: v.to(model.device) for k, v in processed.items()}
+    with torch.no_grad():
+        feats = model.get_image_features(**inputs)  # torch.Tensor [1, D]
+    raw = feats.cpu().numpy().tobytes()
+    b64 = base64.b64encode(raw).decode("ascii")
+    Path(path).write_text(b64)
+
 
 def save_processed_image(  # type: ignore[no-untyped-def]
     processed: Dict[str, Any], output_path: str
@@ -21,6 +37,7 @@ def save_processed_image(  # type: ignore[no-untyped-def]
     with open(output_path, "w") as f:
         json.dump(data, f)
     print(f"Saved processed image in {output_path}")
+
 
 def load_model(model_id: str) -> Tuple[AutoModelForCausalLM, AutoProcessor]:
     """Load Molmo model."""
@@ -39,9 +56,7 @@ def infer_to_raw(
 ) -> str:
     """Run Molmo and return raw generated string."""
     inputs = processor.process(images=[image], text=prompt)
-    
-    save_processed_image(inputs, "output.txt")
-    
+    # save_processed_image(inputs, "output.txt")
     inputs = {k: v.to(model.device).unsqueeze(0) for k, v in inputs.items()}
 
     # Convert image inputs to the same dtype as the model
@@ -167,6 +182,8 @@ def main() -> None:
     except Exception as e:
         print(f"Error loading image: {e}")
         sys.exit(1)
+
+    save_image_features(model, processor, image, "output2.txt")
 
     # Start chat loop
     chat_loop(model, processor, image)

@@ -1,0 +1,27 @@
+## adding both shot1 and shot2 made bad results
+Image_Path: data/images/3233d615-24-6.jpg
+
+Human_Prompt: You are a specialised circuit-diagram interpreter. Given the image of an electrical circuit diagram, identify which symbol classes from the list below appear in the image. IMPORTANT RULES: - Only list symbols you can clearly see and identify in the image - Do not guess or assume symbols are present - If you're uncertain about a symbol, do not include it - Look for distinctive visual features of each symbol type - A typical simple circuit might only contain 2-5 different symbol types. List only the classes you find, in a python list, and nothing else. Symbol classes: ["terminal", "gnd", "vss", "voltage.dc", "voltage.ac", "voltage.battery", "resistor", "resistor.adjustable", "resistor.photo", "capacitor.unpolarized", "capacitor.polarized", "capacitor.adjustable", "inductor", "inductor.ferrite", "inductor.coupled", "transformer", "diode", "diode.light_emitting", "diode.thyrector", "diode.zener", "diac", "triac", "thyristor", "varistor", "transistor.bjt", "transistor.fet", "transistor.photo", "operational_amplifier", "operational_amplifier.schmitt_trigger", "optocoupler", "integrated_circuit", "integrated_circuit.ne555", "integrated_circuit.voltage_regulator", "xor", "and", "or", "not", "nand", "nor", "probe", "probe.current", "probe.voltage", "switch", "relay", "socket", "fuse", "speaker", "motor", "lamp", "microphone", "antenna", "crystal", "mechanical", "magnetic", "optical", "block"]. Do it for this specific image: 
+
+Model_Response:  <points x1="56.6" y1="24.4" alt="resistor">resistor</points> 
+
+## location shot works
+You are a specialised circuit-diagram interpreter performing zero-shot inference. Given the image of an electrical circuit diagram, identify **all** symbols of class "terminal". - Output exactly one <points> tag and *nothing else*. - Inside that tag, list one coordinate pair per detected symbol, in order: x1="…" y1="…" x2="…" y2="…" x3="…" y3="…" … continuing as needed. Use the centre of each symbol's bounding box and the number being the percentage of the image width and height. - If the image contains only one symbol, output only x1 and y1; if two, add x2 y2; and so on. - Do **not** invent coordinates only include pairs for symbols that truly exist. Example for a single symbol: <points x1="41.0" y1="58.3" alt="terminal">terminal</points> Example for four symbols: <points x1="12.1" y1="23.4" x2="45.0" y2="67.2" x3="78.8" y3="11.9" x4="102.5" y4="53.0" alt="terminal">terminal</points>
+
+Model_Response:  <points x1="12.1" y1="23.4" x2="45.0" y2="67.2" x3="78.8" y3="11.9" x4="102.5" y4="53.0" alt="terminal">terminal</points> 
+
+## symbol shot gives same result as example
+
+## adding ""Give me a list with max 8 elements without repeating them. Limits it but changing it to 10 doesnt limit it
+You are a specialised circuit-diagram interpreter. Given the image of an electrical circuit diagram, identify which symbol classes from the list below appear in the image. IMPORTANT RULES: - Only list symbols you can clearly see and identify in the image - Do not guess or assume symbols are present - If you're uncertain about a symbol, do not include it - Look for distinctive visual features of each symbol type - A typical simple circuit might only contain 2-5 different symbol types. List only the classes you find, in a python list, and nothing else. Symbol classes: ["terminal", "gnd", "vss", "voltage.dc", "voltage.ac", "voltage.battery", "resistor", "resistor.adjustable", "resistor.photo", "capacitor.unpolarized", "capacitor.polarized", "capacitor.adjustable", "inductor", "inductor.ferrite", "inductor.coupled", "transformer", "diode", "diode.light_emitting", "diode.thyrector", "diode.zener", "diac", "triac", "thyristor", "varistor", "transistor.bjt", "transistor.fet", "transistor.photo", "operational_amplifier", "operational_amplifier.schmitt_trigger", "optocoupler", "integrated_circuit", "integrated_circuit.ne555", "integrated_circuit.voltage_regulator", "xor", "and", "or", "not", "nand", "nor", "probe", "probe.current", "probe.voltage", "switch", "relay", "socket", "fuse", "speaker", "motor", "lamp", "microphone", "antenna", "crystal", "mechanical", "magnetic", "optical", "block"]. Give me a list with max 8 elements without repeating them.
+
+## locations: molmo just repeats the example points
+
+---
+Shot selection (0=none, 1=symbol, 2=location): 2
+---
+Image_Path: data/images/diagram2.png
+---
+Human_Prompt: 'You are a specialised circuit-diagram interpreter performing zero-shot inference.\nGiven the image of an electrical circuit diagram, identify **all** symbols of class\n"terminal".\n\n- Output exactly one <points> tag and *nothing else*.\n- Inside that tag, list one coordinate pair per detected symbol, in order:\n  x1="…" y1="…" x2="…" y2="…" x3="…" y3="…" … continuing as needed.\n  Use the centre of each symbol\'s bounding box and the number being the percentage of the image width and height.\n- If the image contains only one symbol, output only x1 and y1; if two, add x2 y2; and so on.\n- Do **not** invent coordinates only include pairs for symbols that truly exist.\n\nExample for a single symbol:\n<points x1="41.0" y1="58.3" alt="terminal">terminal</points>\n\nExample for four symbols:\n<points x1="12.1" y1="23.4" x2="45.0" y2="67.2" x3="78.8" y3="11.9" x4="102.5" y4="53.0"\nalt="terminal">terminal</points>'
+
+Model_Response:  <points x1="12.1" y1="23.4" x2="45.0" y2="67.2" x3="78.8" y3="11.9" x4="102.5" y4="53.0" alt="terminal">terminal</points> 

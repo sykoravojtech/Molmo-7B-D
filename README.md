@@ -6,6 +6,7 @@ has been tested to run on 24GB VRAM
 ### interactive node
 ```
 qsub -I -l select=1:ncpus=2:ngpus=1:gpu_mem=24gb:mem=20gb -l walltime=6:00:00
+qsub -I -l select=1:ncpus=4:ngpus=1:gpu_mem=40gb:mem=40gb -l walltime=6:00:00
 qsub -I -l select=1:ncpus=4:ngpus=1:mem=20gb:gpu_mem=24gb:scratch_ssd=2gb -l walltime=6:00:00
 ```
 
@@ -31,6 +32,8 @@ poetry install
 ```
 poetry run python -m molmo.test
 poetry run python -m molmo.chat
+poetry run python -m molmo.few_shot
+poetry run python -m molmo.eval
 ```
 
 ### create env

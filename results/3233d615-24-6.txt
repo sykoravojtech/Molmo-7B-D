@@ -1,3 +1,6 @@
+data/images/3233d615-24-6.jpg
+["gnd","socket","terminal"]
+
 ---
 Human_Prompt: You are a specialised circuit-diagram interpreter. Given the image of an electrical circuit diagram, identify which symbol classes from the list below appear in the image. IMPORTANT RULES: - Only list symbols you can clearly see and identify in the image - Do not guess or assume symbols are present - If you're uncertain about a symbol, do not include it - Look for distinctive visual features of each symbol type - A typical simple circuit might only contain 2-5 different symbol types. List only the classes you find, in a python list, and nothing else. Symbol classes: ["terminal", "gnd", "vss", "voltage.dc", "voltage.ac", "voltage.battery", "resistor", "resistor.adjustable", "resistor.photo", "capacitor.unpolarized", "capacitor.polarized", "capacitor.adjustable", "inductor", "inductor.ferrite", "inductor.coupled", "transformer", "diode", "diode.light_emitting", "diode.thyrector", "diode.zener", "diac", "triac", "thyristor", "varistor", "transistor.bjt", "transistor.fet", "transistor.photo", "operational_amplifier", "operational_amplifier.schmitt_trigger", "optocoupler", "integrated_circuit", "integrated_circuit.ne555", "integrated_circuit.voltage_regulator", "xor", "and", "or", "not", "nand", "nor", "probe", "probe.current", "probe.voltage", "switch", "relay", "socket", "fuse", "speaker", "motor", "lamp", "microphone", "antenna", "crystal", "mechanical", "magnetic", "optical", "block"]
 ===
@@ -11,3 +14,12 @@ Human_Prompt: You are a specialised circuit-diagram interpreter performing zero-
 ===
 Model_Response:  <points x1="20.8" y1="42.4" x2="21.0" y2="53.6" alt="socket">socket</points>
 ---
+
+
+FEW SHOT
+
+data/images/3233d615-24-6.jpg
+
+Model_Response:  <points x1="33.0" y1="24.4" x2="33.0" y2="53.6" x3="34.2" y3="42.4" alt="gnd">gnd</points>
+Model_Response:  <points x1="79.0" y1="49.6" x2="79.1" y2="39.6" x3="79.1" y3="59.0" alt="socket">socket</points>
+Model_Response:  <points x1="33.0" y1="24.4" x2="33.0" y2="35.0" x3="33.0" y3="45.8" x4="33.0" y4="56.0" x5="33.0" y5="66.8" x6="33.0" y6="78.0" x7="33.2" y7="14.4" x8="33.2" y8="88.4" x9="33.4" y9="14.4" x10="33.4" y10="24.4" x11="33.4" y11="35.0" x12="33.4" y12="45.8" x13="33.4" y13="56.0" x14="33.4" y14="66.8" x15="33.4" y15="78.0" x16="33.4" y16="88.4" x17="33.6" y17="14.4" x18="33.6" y18="24.4" x19="33.6" y19="35.0" x20="33.6" y20="45.8" alt="terminal">terminal</points>

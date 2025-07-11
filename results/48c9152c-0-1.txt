@@ -1,7 +1,32 @@
+data/images/48c9152c-0-1.jpg
+Shot selection (0=none, 1=symbol, 2=location): 0
 ---
-Human_Prompt: You are a specialised circuit-diagram interpreter. Given the image of an electrical circuit diagram, identify which symbol classes from the list below appear in the image. List only the classes you find, in a python list, and nothing else. Symbol classes: ["terminal", "gnd", "vss", "voltage.dc", "voltage.ac", "voltage.battery", "resistor", "resistor.adjustable", "resistor.photo", "capacitor.unpolarized", "capacitor.polarized", "capacitor.adjustable", "inductor", "inductor.ferrite", "inductor.coupled", "transformer", "diode", "diode.light_emitting", "diode.thyrector", "diode.zener", "diac", "triac", "thyristor", "varistor", "transistor.bjt", "transistor.fet", "transistor.photo", "operational_amplifier", "operational_amplifier.schmitt_trigger", "optocoupler", "integrated_circuit", "integrated_circuit.ne555", "integrated_circuit.voltage_regulator", "xor", "and", "or", "not", "nand", "nor", "probe", "probe.current", "probe.voltage", "switch", "relay", "socket", "fuse", "speaker", "motor", "lamp", "microphone", "antenna", "crystal", "mechanical", "magnetic", "optical", "block"]
-===
-Model_Response:  ["terminal", "gnd", "vss", "voltage.dc", "resistor", "capacitor.unpolarized", "integrated_circuit", "integrated_circuit.ne555", "integrated_circuit.voltage_regulator", "xor", "and", "or", "nand", "nor", "probe", "probe.current", "probe.voltage", "switch", "relay", "socket", "fuse", "speaker", "motor", "lamp", "microphone", "antenna", "crystal", "mechanical", "magnetic", "optical", "block"]
+Image_Path: data/images/48c9152c-0-1.jpg
+---
+Human_Prompt: You are a specialised circuit-diagram interpreter. Given the image of an electrical circuit diagram, identify which symbol classes from the list below appear in the image. IMPORTANT RULES: - Only list symbols you can clearly see and identify in the image - Do not guess or assume symbols are present - If you're uncertain about a symbol, do not include it - Look for distinctive visual features of each symbol type - A typical simple circuit might only contain 2-5 different symbol types. List only the classes you find, in a python list, and nothing else. Symbol classes: ["terminal", "gnd", "vss", "voltage.dc", "voltage.ac", "voltage.battery", "resistor", "resistor.adjustable", "resistor.photo", "capacitor.unpolarized", "capacitor.polarized", "capacitor.adjustable", "inductor", "inductor.ferrite", "inductor.coupled", "transformer", "diode", "diode.light_emitting", "diode.thyrector", "diode.zener", "diac", "triac", "thyristor", "varistor", "transistor.bjt", "transistor.fet", "transistor.photo", "operational_amplifier", "operational_amplifier.schmitt_trigger", "optocoupler", "integrated_circuit", "integrated_circuit.ne555", "integrated_circuit.voltage_regulator", "xor", "and", "or", "not", "nand", "nor", "probe", "probe.current", "probe.voltage", "switch", "relay", "socket", "fuse", "speaker", "motor", "lamp", "microphone", "antenna", "crystal", "mechanical", "magnetic", "optical", "block"]. Give me a list with max 8 elements without repeating them.
+---
+Model_Response:  ["terminal", "gnd", "vss", "resistor", "capacitor.unpolarized", "operational_amplifier", "integrated_circuit", "integrated_circuit.ne555"]
+---
+Shot selection (0=none, 1=symbol, 2=location): 1
+---
+Image_Path: data/images/48c9152c-0-1.jpg
+---
+Human_Prompt: You are a specialised circuit-diagram interpreter. Given the image of an electrical circuit diagram, identify which symbol classes from the list below appear in the image. IMPORTANT RULES: - Only list symbols you can clearly see and identify in the image - Do not guess or assume symbols are present - If you're uncertain about a symbol, do not include it - Look for distinctive visual features of each symbol type - A typical simple circuit might only contain 2-5 different symbol types. List only the classes you find, in a python list, and nothing else. Symbol classes: ["terminal", "gnd", "vss", "voltage.dc", "voltage.ac", "voltage.battery", "resistor", "resistor.adjustable", "resistor.photo", "capacitor.unpolarized", "capacitor.polarized", "capacitor.adjustable", "inductor", "inductor.ferrite", "inductor.coupled", "transformer", "diode", "diode.light_emitting", "diode.thyrector", "diode.zener", "diac", "triac", "thyristor", "varistor", "transistor.bjt", "transistor.fet", "transistor.photo", "operational_amplifier", "operational_amplifier.schmitt_trigger", "optocoupler", "integrated_circuit", "integrated_circuit.ne555", "integrated_circuit.voltage_regulator", "xor", "and", "or", "not", "nand", "nor", "probe", "probe.current", "probe.voltage", "switch", "relay", "socket", "fuse", "speaker", "motor", "lamp", "microphone", "antenna", "crystal", "mechanical", "magnetic", "optical", "block"]. Give me a list with max 8 elements without repeating them.
+---
+Model_Response:  ["terminal", "gnd", "resistor", "diode.zener", "voltage.battery", "socket", "fuse", " switch"]
+---
+
+---
+Shot selection (0=none, 1=symbol, 2=location): 0
+---
+Image_Path: data/images/8a23460a-1.jpg 
+---
+Human_Prompt: You are a specialised circuit-diagram interpreter. Given the image of an electrical circuit diagram, identify which symbol classes from the list below appear in the image. IMPORTANT RULES: - Only list symbols you can clearly see and identify in the image - Do not guess or assume symbols are present - If you're uncertain about a symbol, do not include it - Look for distinctive visual features of each symbol type - A typical simple circuit might only contain 2-5 different symbol types. List only the classes you find, in a python list, and nothing else. Symbol classes: ["terminal", "gnd", "vss", "voltage.dc", "voltage.ac", "voltage.battery", "resistor", "resistor.adjustable", "resistor.photo", "capacitor.unpolarized", "capacitor.polarized", "capacitor.adjustable", "inductor", "inductor.ferrite", "inductor.coupled", "transformer", "diode", "diode.light_emitting", "diode.thyrector", "diode.zener", "diac", "triac", "thyristor", "varistor", "transistor.bjt", "transistor.fet", "transistor.photo", "operational_amplifier", "operational_amplifier.schmitt_trigger", "optocoupler", "integrated_circuit", "integrated_circuit.ne555", "integrated_circuit.voltage_regulator", "xor", "and", "or", "not", "nand", "nor", "probe", "probe.current", "probe.voltage", "switch", "relay", "socket", "fuse", "speaker", "motor", "lamp", "microphone", "antenna", "crystal", "mechanical", "magnetic", "optical", "block"]. Give me a list with max 8 elements without repeating them.
+---
+Model_Response: 
+ ["terminal", "voltage.battery", "resistor", "capacitor.unpolarized", "integrated_circuit", "operational_amplifier", "switch", "probe.voltage"]
+---
+
 ---
 Human_Prompt: You are a specialised circuit-diagram interpreter performing zero-shot inference. Given the image of an electrical circuit diagram, identify all symbols of class "gnd". For each symbol from that class, output one <points> tag and nothing else, in the exact format: <points x1="…" y1="…" x2="…" y2="…" alt="gnd">gnd</points> Use the coordinates of the bounding polygon of each symbol. Do not include any additional text or tags.Example: <points x1="20.8" y1="42.4" x2="21.0" y2="53.6" alt="gnd">gnd</points>
 ===
@@ -15,3 +40,12 @@ Human_Prompt: You are a specialised circuit-diagram interpreter performing zero-
 ===
 Model_Response:  <points x1="20.8" y1="42.4" x2="21.0" y2="53.6" x3="46.5" y3="35.5" x4="46.5" y4="58.0" x5="54.0" y5="35.5" x6="54.0" y6="58.0" x7="79.8" y7="53.6" x8="80.0" y8="42.4" alt="integrated_circuit.voltage_regulator">integrated_circuit.voltage_regulator</points>
 ---
+
+
+FEW SHOT
+
+data/images/48c9152c-0-1.jpg
+
+Model_Response:  <points x1="80.5" y1="42.4" x2="81.0" y2="53.6" x3="82.3" y3="54.8" alt="capacitor.unpolarized">capacitor.unpolarized</points>
+Model_Response:  <points x1="49.5" y1="75.6" x2="50.0" y2="84.6" x3="80.0" y3="75.6" x4="80.3" y4="84.6" alt="gnd">gnd</points>
+Model_Response:  <points x1="56.6" y1="24.4" alt="integrated_circuit.voltage">integrated_circuit.voltage</points>
