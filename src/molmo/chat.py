@@ -12,7 +12,7 @@ from PIL import Image
 from transformers import AutoModelForCausalLM, AutoProcessor, GenerationConfig
 
 
-def save_image_features(  # type: ignore[no-untyped-def]
+def save_image_features(  
     model: Any, processor: Any, image: Image.Image, path: str
 ) -> None:
     """Extract and save the image-feature vector as Base64 text."""
@@ -26,7 +26,7 @@ def save_image_features(  # type: ignore[no-untyped-def]
     Path(path).write_text(b64)
 
 
-def save_processed_image(  # type: ignore[no-untyped-def]
+def save_processed_image(  
     processed: Dict[str, Any], output_path: str
 ) -> None:
     """Save the processed image tensor as JSON to a text file."""

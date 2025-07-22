@@ -1,7 +1,5 @@
+"""Interactive few-shot chat with Molmo-7B-D."""
 from __future__ import annotations
-
-"""Interactive few-shot chat with Molmo-7B-D.
-"""
 
 import json
 import os
@@ -87,7 +85,7 @@ SYSTEM_PROMPT: str = "You are a precise and concise circuit-diagram interpreter.
 
 
 def load_model() -> Tuple[AutoModelForCausalLM, AutoProcessor]:
-    """Load Molmo‑7B‑D."""
+    """Load Molmo-7B-D."""
     opts = dict(trust_remote_code=True, torch_dtype=torch.bfloat16, device_map="auto")
     return (
         AutoModelForCausalLM.from_pretrained(MODEL_ID, **opts),
@@ -143,7 +141,7 @@ def run_inference(
     user_image_path: str,
     shot: int = 0,
 ) -> str:
-    """Generate Molmo reply for *query* with the selected shot base."""
+    """Generate Molmo reply for 'query' with the selected shot base."""
     messages, images = build_messages(query, user_image_path, shot)
     prompt = processor.tokenizer.apply_chat_template(
         messages,

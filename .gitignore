@@ -195,3 +195,4 @@ cython_debug/
 
 poetry.lock
 data/
+src/molmo/old/
